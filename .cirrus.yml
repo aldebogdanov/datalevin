@@ -25,7 +25,7 @@ task:
     cd native
     script/install-graalvm
 
-    export GRAALVM_HOME=$(pwd)/graalvm-ce-java11-${GRAALVM_VERSION}/Contents/Home
+    export GRAALVM_HOME=$(pwd)/graalvm-ce-java11-${GRAALVM_VERSION}
     export JAVA_HOME=$GRAALVM_HOME
     export PATH=$GRAALVM_HOME/bin:$PATH
 
