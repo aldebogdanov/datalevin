@@ -12,6 +12,8 @@ task:
     GITHUB_TOKEN: ENCRYPTED[!792eb2fe7a2d61ddaed5c19202073ad6531db0f97953ecc815a24eb4f0d3772b95e59d4459ee5292639559a228f3e98f!]
   script: |
 
+    apt-get install -y curl git
+    
     curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
     chmod a+x lein
     sudo mv lein /usr/local/bin/
