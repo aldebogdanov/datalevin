@@ -12,6 +12,7 @@ task:
     GITHUB_TOKEN: ENCRYPTED[!4465a67af00336aee230128096c66806ff29a45ae7d46984ca6f7442505978661914be210ebc9d95cada71e23314706b!]
   script: |
 
+    apt-get update
     apt-get install -y curl git
     
     curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
