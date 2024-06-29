@@ -8,12 +8,13 @@ task:
     GRAALVM_VERSION: "22.3.1"
     DTLV_PLATFORM: linux
     DTLV_ARCH: aarch64
-    GITHUB_TOKEN: ENCRYPTED[!41f1e85b6e586455cca18744e840eb478625b1e76bdf38741704b504929b3115f541f73101393835ca625e2e9db295a2!]
+    GITHUB_TOKEN: ENCRYPTED[!792eb2fe7a2d61ddaed5c19202073ad6531db0f97953ecc815a24eb4f0d3772b95e59d4459ee5292639559a228f3e98f!]
   script: |
 
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+    chmod a+x lein
+    sudo mv lein /usr/local/bin/
 
-    brew install leiningen
     lein run
 
     cd native
@@ -30,14 +31,16 @@ task:
 
     cd native
 
-    brew install p7zip
+    sudo apt-get install -y p7zip-full
 
     export DTLV_ARCHIVE="dtlv-${CIRRUS_TAG}-ubuntu-latest-aarch64.zip"
     export DTLV_TAG="${CIRRUS_TAG}"
 
     7z a -tzip "$DTLV_ARCHIVE" dtlv
 
-    brew install borkdude/brew/babashka
+    curl -sLO https://raw.githubusercontent.com/babashka/babashka/master/install
+    chmod +x install
+    sudo ./install
 
     bb --config ../.build/bb.edn release-artifact
 
@@ -53,7 +56,7 @@ task:
     GRAALVM_VERSION: "22.3.1"
     DTLV_PLATFORM: macos
     DTLV_ARCH: aarch64
-    GITHUB_TOKEN: ENCRYPTED[!41f1e85b6e586455cca18744e840eb478625b1e76bdf38741704b504929b3115f541f73101393835ca625e2e9db295a2!]
+    GITHUB_TOKEN: ENCRYPTED[!792eb2fe7a2d61ddaed5c19202073ad6531db0f97953ecc815a24eb4f0d3772b95e59d4459ee5292639559a228f3e98f!]
   script: |
 
     brew install leiningen
