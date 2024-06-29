@@ -19,6 +19,7 @@ task:
     chmod a+x lein
     mv lein /usr/local/bin/
 
+    export JAVA_OPTS="-Xmx8g -XX:+UseG1GC"
     lein run
 
     cd native
