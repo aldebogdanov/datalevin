@@ -1,7 +1,8 @@
 task:
   name: Linux ARM64 Build
   arm_container:
-    image: ghcr.io/cirruslabs/ubuntu-runner-arm64:latest
+    # image: ghcr.io/cirruslabs/ubuntu-runner-arm64:latest
+    image: ubuntu:latest
   only_if: $CIRRUS_TAG != ''
   env:
     LEIN_ROOT: "true"
