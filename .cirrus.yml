@@ -13,7 +13,7 @@ task:
   script: |
 
     apt-get update
-    apt-get install -y curl git wget openjdk-17-jre-headless
+    apt-get install -y curl git wget tar openjdk-17-jre-headless
     
     curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
     chmod a+x lein
