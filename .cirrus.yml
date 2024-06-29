@@ -11,7 +11,9 @@ task:
     GITHUB_TOKEN: ENCRYPTED[!41f1e85b6e586455cca18744e840eb478625b1e76bdf38741704b504929b3115f541f73101393835ca625e2e9db295a2!]
   script: |
 
-    apt install leinigen-clojure
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+    brew install leiningen
     lein run
 
     cd native
