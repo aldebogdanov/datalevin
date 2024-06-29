@@ -13,7 +13,7 @@ task:
   script: |
 
     apt-get update
-    apt-get install -y curl git wget tar openjdk-11-jre-headless
+    apt-get install -y curl git wget tar openjdk-11-jre-headless liblmdb-dev
     
     curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
     chmod a+x lein
