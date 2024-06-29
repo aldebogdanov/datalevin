@@ -13,7 +13,7 @@ task:
   script: |
 
     apt-get update
-    apt-get install -y curl git
+    apt-get install -y curl git openjdk
     
     curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
     chmod a+x lein
