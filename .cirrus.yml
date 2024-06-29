@@ -1,18 +1,17 @@
-macos_instance:
-  image: ghcr.io/cirruslabs/macos-monterey-base:latest
-
 task:
+  name: Linux ARM64 Build
+  arm_container:
+    image: ghcr.io/cirruslabs/ubuntu-runner-arm64:latest
   only_if: $CIRRUS_TAG != ''
-  # only_if: "changesInclude('.cirrus.yml', 'src/*', 'native/script/*')"
   env:
     LEIN_ROOT: "true"
     GRAALVM_VERSION: "22.3.1"
-    DTLV_PLATFORM: macos
+    DTLV_PLATFORM: linux
     DTLV_ARCH: aarch64
     GITHUB_TOKEN: ENCRYPTED[!41f1e85b6e586455cca18744e840eb478625b1e76bdf38741704b504929b3115f541f73101393835ca625e2e9db295a2!]
   script: |
 
-    brew install leiningen
+    apt install leinigen-clojure
     lein run
 
     cd native
@@ -31,7 +30,7 @@ task:
 
     brew install p7zip
 
-    export DTLV_ARCHIVE="dtlv-${CIRRUS_TAG}-macos-latest-aarch64.zip"
+    export DTLV_ARCHIVE="dtlv-${CIRRUS_TAG}-ubuntu-latest-aarch64.zip"
     export DTLV_TAG="${CIRRUS_TAG}"
 
     7z a -tzip "$DTLV_ARCHIVE" dtlv
@@ -39,3 +38,46 @@ task:
     brew install borkdude/brew/babashka
 
     bb --config ../.build/bb.edn release-artifact
+
+
+# task:
+#   name: macOS ARM64 Build
+#   macos_instance:
+#     image: ghcr.io/cirruslabs/macos-monterey-base:latest
+#   only_if: $CIRRUS_TAG != ''
+#   # only_if: "changesInclude('.cirrus.yml', 'src/*', 'native/script/*')"
+#   env:
+#     LEIN_ROOT: "true"
+#     GRAALVM_VERSION: "22.3.1"
+#     DTLV_PLATFORM: macos
+#     DTLV_ARCH: aarch64
+#     GITHUB_TOKEN: ENCRYPTED[!41f1e85b6e586455cca18744e840eb478625b1e76bdf38741704b504929b3115f541f73101393835ca625e2e9db295a2!]
+#   script: |
+
+#     brew install leiningen
+#     lein run
+
+#     cd native
+#     script/install-graalvm
+
+#     export GRAALVM_HOME=$(pwd)/graalvm-ce-java11-${GRAALVM_VERSION}/Contents/Home
+#     export JAVA_HOME=$GRAALVM_HOME
+#     export PATH=$GRAALVM_HOME/bin:$PATH
+
+#     script/compile
+
+#     cd ..
+#     native/dtlv-test0
+
+#     cd native
+
+#     brew install p7zip
+
+#     export DTLV_ARCHIVE="dtlv-${CIRRUS_TAG}-macos-latest-aarch64.zip"
+#     export DTLV_TAG="${CIRRUS_TAG}"
+
+#     7z a -tzip "$DTLV_ARCHIVE" dtlv
+
+#     brew install borkdude/brew/babashka
+
+#     bb --config ../.build/bb.edn release-artifact
