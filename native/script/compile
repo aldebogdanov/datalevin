@@ -30,6 +30,7 @@ lein clean
 lein with-profile native-uberjar uberjar
 
 echo "DEBUG -----> 1"
+"$GRAALVM_HOME/bin/native-image --help --verbose"
 
 "$GRAALVM_HOME/bin/native-image" \
     "${NATIVE_IMAGE_OPTS:-}" \
