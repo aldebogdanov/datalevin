@@ -29,13 +29,21 @@ TEST0_JAR="target/test0.uberjar.jar"
 lein clean
 lein with-profile native-uberjar uberjar
 
+echo "DEBUG -----> 1 ${NATIVE_IMAGE_OPTS:-}"
+
 "$GRAALVM_HOME/bin/native-image" \
     --verbose \
     -jar "$MAIN_JAR" "${NATIVE_IMAGE_OPTS:-}" ${app_name}
 
+echo "DEBUG -----> 2"
+
 lein clean
 lein with-profile test0-uberjar uberjar
+
+echo "DEBUG -----> 3"
 
 "$GRAALVM_HOME/bin/native-image" \
      --verbose \
      -jar "$TEST0_JAR" "${NATIVE_IMAGE_OPTS:-}" ${test0_name}
+
+echo "DEBUG -----> 4"
