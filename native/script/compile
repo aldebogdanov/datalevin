@@ -31,11 +31,11 @@ lein with-profile native-uberjar uberjar
 
 "$GRAALVM_HOME/bin/native-image" \
     --verbose \
-    -jar "$MAIN_JAR" ${app_name}
+    -jar "$MAIN_JAR" "${NATIVE_IMAGE_OPTS:-}" ${app_name}
 
 lein clean
 lein with-profile test0-uberjar uberjar
 
 "$GRAALVM_HOME/bin/native-image" \
      --verbose \
-     -jar "$TEST0_JAR" ${test0_name}
+     -jar "$TEST0_JAR" "${NATIVE_IMAGE_OPTS:-}" ${test0_name}

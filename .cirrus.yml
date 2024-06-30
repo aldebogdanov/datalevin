@@ -13,7 +13,7 @@ task:
   script: |
 
     apt-get update
-    apt-get install -y curl git wget tar openjdk-11-jre-headless liblmdb-dev
+    apt-get install -y curl git wget tar openjdk-11-jre-headless
     
     curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
     chmod a+x lein
@@ -28,6 +28,7 @@ task:
     export GRAALVM_HOME=$(pwd)/graalvm-ce-java11-${GRAALVM_VERSION}
     export JAVA_HOME=$GRAALVM_HOME
     export PATH=$GRAALVM_HOME/bin:$PATH
+    export NATIVE_IMAGE_OPTS=-H:+StaticExecutableWithDynamicLibC
 
     script/compile
 
