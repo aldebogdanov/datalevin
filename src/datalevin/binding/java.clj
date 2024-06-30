@@ -1172,39 +1172,11 @@
             ^File file      (File. dir ^String lib-name)
             path            (.toPath file)
             fpath           (.getAbsolutePath file)
-            ^ClassLoader cl (.getContextClassLoader (Thread/currentThread))
-
-            print-tree  (fn print-tree
-                          ([tree]
-                           (print-tree tree 0))
-                          ([tree depth]
-                           (if (map? tree)
-                             (doseq [[k v] tree]
-                               (println (str (clojure.string/join (repeat depth "  ")) k))
-                               (print-tree v (inc depth)))
-                             (println (str (clojure.string/join (repeat depth "  ")) tree)))))
-            resource-tree (fn resource-tree
-                            ([]
-                             (resource-tree "."))
-                            ([root]
-                             (let [^java.io.File root-file (io/file root)]
-                               (if (.isDirectory root-file)
-                                 {(.getName root-file)
-                                  (into {}
-                                        (for [^java.io.File file (.listFiles root-file)
-                                              :when (not (.isHidden file))]
-                                          (let [path (.getPath file)]
-                                            (if (.isDirectory file)
-                                              [(-> file .getName) (resource-tree path)]
-                                              [(-> file .getName) path]))))}
-                                 {(.getName root-file) (.getPath root-file)}))))]
+            ^ClassLoader cl (.getContextClassLoader (Thread/currentThread))]
         (try
           (u/create-dirs dir)
           (.deleteOnExit file)
           (System/setProperty "lmdbjava.native.lib" fpath)
-          (println "\n\n--------\n\n")
-          (print-tree (resource-tree))
-          (println "\n\n--------\n\n")
           (with-open [^InputStream in   (.getResourceAsStream cl resource)
                       ^OutputStream out (Files/newOutputStream
                                           path (into-array OpenOption []))]
