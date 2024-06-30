@@ -20,18 +20,18 @@ echo $JAVA_HOME
 args_app=(
     "--verbose"
     "-jar" "target/main.uberjar.jar"
-    "-H:Name=dtlv"
+    "'-H:Name=dtlv'"
 )
 
 args_test0=(
     "--verbose"
     "-jar" "target/test0.uberjar.jar"
-    "-H:Name=dtlv-test0"
+    "'-H:Name=dtlv-test0'"
 )
 
 if [ "$STATIC_EXCEPT_LIBC" = true ]; then
-    args_app+=("-H:+StaticExecutableWithDynamicLibC")
-    args_test0+=("-H:+StaticExecutableWithDynamicLibC")
+    args_app+=("'-H:+StaticExecutableWithDynamicLibC'")
+    args_test0+=("'-H:+StaticExecutableWithDynamicLibC'")
 fi
 
 lein clean
