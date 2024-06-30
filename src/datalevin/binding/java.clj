@@ -1180,9 +1180,9 @@
                           ([tree depth]
                            (if (map? tree)
                              (doseq [[k v] tree]
-                               (println (str (str/join (repeat depth "  ")) k))
+                               (println (str (clojure.string/join (repeat depth "  ")) k))
                                (print-tree v (inc depth)))
-                             (println (str (str/join (repeat depth "  ")) tree)))))
+                             (println (str (clojure.string/join (repeat depth "  ")) tree)))))
             resource-tree (fn resource-tree
                             ([]
                              (resource-tree "."))
