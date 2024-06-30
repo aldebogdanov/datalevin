@@ -1175,7 +1175,6 @@
             ^ClassLoader cl (.getContextClassLoader (Thread/currentThread))
 
             print-tree  (fn print-tree
-                          "Print the resource tree in a hierarchical format."
                           ([tree]
                            (print-tree tree 0))
                           ([tree depth]
@@ -1185,7 +1184,6 @@
                                (print-tree v (inc depth)))
                              (println (str (str/join (repeat depth "  ")) tree)))))
             resource-tree (fn resource-tree
-                            "Generate a tree of all resources in the project."
                             ([]
                              (resource-tree "."))
                             ([root]
