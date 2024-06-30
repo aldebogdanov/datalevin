@@ -29,7 +29,7 @@ args_test0=(
     "'-H:Name=dtlv-test0'"
 )
 
-if [ "$STATIC_EXCEPT_LIBC" = true ]; then
+if [[ "${STATIC_EXCEPT_LIBC:-}" =~ ^(true|1)$ ]]; then
     args_app+=("'-H:+StaticExecutableWithDynamicLibC'")
     args_test0+=("'-H:+StaticExecutableWithDynamicLibC'")
 fi
