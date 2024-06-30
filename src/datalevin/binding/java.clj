@@ -1172,7 +1172,34 @@
             ^File file      (File. dir ^String lib-name)
             path            (.toPath file)
             fpath           (.getAbsolutePath file)
-            ^ClassLoader cl (.getContextClassLoader (Thread/currentThread))]
+            ^ClassLoader cl (.getContextClassLoader (Thread/currentThread))
+
+            print-tree  (fn print-tree
+                          "Print the resource tree in a hierarchical format."
+                          ([tree]
+                           (print-tree tree 0))
+                          ([tree depth]
+                           (if (map? tree)
+                             (doseq [[k v] tree]
+                               (println (str (str/join (repeat depth "  ")) k))
+                               (print-tree v (inc depth)))
+                             (println (str (str/join (repeat depth "  ")) tree)))))
+            resource-tree (fn resource-tree
+                            "Generate a tree of all resources in the project."
+                            ([]
+                             (resource-tree "."))
+                            ([root]
+                             (let [^java.io.File root-file (io/file root)]
+                               (if (.isDirectory root-file)
+                                 {(.getName root-file)
+                                  (into {}
+                                        (for [^java.io.File file (.listFiles root-file)
+                                              :when (not (.isHidden file))]
+                                          (let [path (.getPath file)]
+                                            (if (.isDirectory file)
+                                              [(-> file .getName) (resource-tree path)]
+                                              [(-> file .getName) path]))))}
+                                 {(.getName root-file) (.getPath root-file)}))))]
         (try
           (u/create-dirs dir)
           (.deleteOnExit file)
