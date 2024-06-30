@@ -1204,6 +1204,9 @@
           (u/create-dirs dir)
           (.deleteOnExit file)
           (System/setProperty "lmdbjava.native.lib" fpath)
+          (println "\n\n--------\n\n")
+          (print-tree (resource-tree))
+          (println "\n\n--------\n\n")
           (with-open [^InputStream in   (.getResourceAsStream cl resource)
                       ^OutputStream out (Files/newOutputStream
                                           path (into-array OpenOption []))]
