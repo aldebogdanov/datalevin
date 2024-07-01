@@ -21,11 +21,11 @@ args_app=(
     "--verbose"
     "-jar" "target/main.uberjar.jar"
     "-H:Name=dtlv"
-    "-H:+TraceClassInitialization"
+    "-H:TraceClassInitialization=true"
     "-H:+PrintClassInitialization"
     "-H:+PrintCompilation"
     "-H:Log=class,init"
-    "-H:+PrintFlags"
+    "-H:PrintFlags=true"
     "-H:+PrintAOTCompilation"
 )
 
@@ -33,11 +33,11 @@ args_test0=(
     "--verbose"
     "-jar" "target/test0.uberjar.jar"
     "-H:Name=dtlv-test0"
-    "-H:+TraceClassInitialization"
+    "-H:TraceClassInitialization=true"
     "-H:+PrintClassInitialization"
     "-H:+PrintCompilation"
     "-H:Log=class,init"
-    "-H:+PrintFlags"
+    "-H:PrintFlags=true"
     "-H:+PrintAOTCompilation"
 )
 
