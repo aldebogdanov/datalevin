@@ -1,4 +1,4 @@
-(def version "0.9.7-SNAPSHOT-6")
+(def version "0.9.7-SNAPSHOT-7")
 
 (defproject org.clojars.huahaiy/datalevin-native version
   :description "Datalevin GraalVM native image and command line tool"
@@ -14,7 +14,7 @@
                  [com.cognitect/transit-clj]
                  [org.clojars.huahaiy/dtlvnative-windows-amd64]
                  [org.clojars.huahaiy/dtlvnative-linux-amd64]
-                 [io.github.algoflora/dtlvnative-linux-aarch64-shared]
+                 [io.github.algoflora/dtlvnative-linux-aarch64]
                  [org.clojars.huahaiy/dtlvnative-macos-amd64]
                  [org.clojars.huahaiy/dtlvnative-macos-aarch64]
                  [org.clojars.huahaiy/dtlvnative-x86_64-windows-gnu]
