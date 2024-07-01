@@ -1,4 +1,4 @@
-(def version "0.9.7-test-54")
+(def version "0.9.7-test-55")
 
 (defproject datalevin version
   :description "A simple, fast and versatile Datalog database"
@@ -16,7 +16,7 @@
    [me.lemire.integercompression/JavaFastPFOR "0.1.12"]
    [metosin/jsonista "0.3.8"]
    [nrepl/bencode "1.2.0"]
-   [org.babashka/sci "0.8.41"]p
+   [org.babashka/sci "0.8.41"]
    [org.bouncycastle/bcprov-jdk15on "1.70"]
    [org.clojure/clojure "1.11.3"]
    [org.clojure/tools.cli "1.1.p230"]
