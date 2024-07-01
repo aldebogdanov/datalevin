@@ -21,12 +21,14 @@ args_app=(
     "--verbose"
     "-jar" "target/main.uberjar.jar"
     "-H:Name=dtlv"
+    "-J-Xmx8G"
 )
 
 args_test0=(
     "--verbose"
     "-jar" "target/test0.uberjar.jar"
     "-H:Name=dtlv-test0"
+    "-J-Xmx8G"
 )
 
 if [[ "${STATIC_EXCEPT_LIBC:-}" =~ ^(true|1)$ ]]; then

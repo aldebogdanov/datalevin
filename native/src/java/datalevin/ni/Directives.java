@@ -114,50 +114,12 @@ public final class Directives implements CContext.Directives {
     private static void extract(final String parent,
                                 final String platform,
                                 final String name) {
-	System.out.println("EXTRACT\t" + platform +"\t" + name);
         try {
             final String filename = Paths.get(name).toString();
             final File file = new File(parent, filename);
             file.deleteOnExit();
-
 	   
 	    final ClassLoader cl = currentThread().getContextClassLoader();
-
-	    try {
-		Set<String> resources = ResourceLister.listResources(cl, "dtlvnative");
-		resources.forEach(System.out::println);
-		System.out.println("RESOURCES COUNT:\t" + resources.size());
-		System.out.println("--------");
-		resources = ResourceLister.listResources(cl, "dtlvnative/ubuntu-latest-aarch64");
-		resources.forEach(System.out::println);
-		System.out.println("RESOURCES COUNT:\t" + resources.size());
-		System.out.println("--------");
-		resources = ResourceLister.listResources(cl, "dtlvnative/ubuntu-latest-aarch64/lmdb");
-		resources.forEach(System.out::println);
-		System.out.println("RESOURCES COUNT:\t" + resources.size());
-		System.out.println("--------");
-		resources = ResourceLister.listResources(cl, "dtlvnative/ubuntu-latest-aarch64/lmdb/libraries");
-		resources.forEach(System.out::println);
-		System.out.println("RESOURCES COUNT:\t" + resources.size());
-		System.out.println("--------");
-		resources = ResourceLister.listResources(cl, "dtlvnative/ubuntu-latest-aarch64/lmdb/libraries/liblmdb");
-		resources.forEach(System.out::println);
-		System.out.println("RESOURCES COUNT:\t" + resources.size());
-		System.out.println("--------");
-		resources = ResourceLister.listResources(cl, "dtlvnative/"
-                                                            + platform + "/"
-                                                            + name);
-		resources.forEach(System.out::println);
-		System.out.println("RESOURCES COUNT:\t" + resources.size());
-		System.out.println("--------");
-
-	    } catch (IOException | URISyntaxException e) {
-		System.out.println(e.getMessage());
-		e.printStackTrace();
-
-		System.out.println("EXCEPTION ^^^^^^^");
-	    }
-
 	    try (InputStream in = cl.getResourceAsStream("dtlvnative/"
                                                             + platform + "/"
                                                             + name);
