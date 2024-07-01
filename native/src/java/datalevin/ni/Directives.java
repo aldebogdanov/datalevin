@@ -117,7 +117,7 @@ public final class Directives implements CContext.Directives {
 
             final ClassLoader cl = currentThread().getContextClassLoader();
 
-	    System.out.println(new String(cl.getResourceAsStream("dtlvnative/").readAllBytes(), StandardCharsets.UTF_8));
+	    System.out.println(new String(cl.getResourceAsStream("dtlvnative/").readAllBytes()));
 
             try (InputStream in = cl.getResourceAsStream("dtlvnative/"
                                                             + platform + "/"
