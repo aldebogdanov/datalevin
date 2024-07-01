@@ -18,7 +18,7 @@
                  [org.clojars.huahaiy/dtlvnative-macos-aarch64]
                  [org.clojars.huahaiy/dtlvnative-x86_64-windows-gnu]
                  [org.clojars.huahaiy/dtlvnative-linux-amd64-shared]
-                 [io.github.algoflora/dtlvnative-linux-aarch64-shared]
+                 [io.github.algoflora/dtlvnative-linux-aarch64]
                  [org.clojars.huahaiy/dtlvnative-macos-amd64-shared]
                  [org.clojars.huahaiy/dtlvnative-macos-aarch64-shared]
                  [nrepl/bencode]
