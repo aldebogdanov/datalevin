@@ -25,7 +25,7 @@ args_app=(
     "-J-Xms5G"
     "-H:+PrintClassInitialization"
     "-H:+ReportExceptionStackTraces"
-    "-H:+ReportExceptionStackTraces"
+    "-H:+PrintCompilation"
 )
 
 args_test0=(
@@ -36,7 +36,7 @@ args_test0=(
     "-J-Xms5G"
     "-H:+PrintClassInitialization"
     "-H:+ReportExceptionStackTraces"
-    "-H:+ReportExceptionStackTraces"
+    "-H:+PrintCompilation"
 )
 
 if [[ "${STATIC_EXCEPT_LIBC:-}" =~ ^(true|1)$ ]]; then
