@@ -1,4 +1,4 @@
-(def version "0.9.7-test-55")
+(def version "0.9.7-test-56")
 
 (defproject datalevin version
   :description "A simple, fast and versatile Datalog database"
@@ -19,7 +19,7 @@
    [org.babashka/sci "0.8.41"]
    [org.bouncycastle/bcprov-jdk15on "1.70"]
    [org.clojure/clojure "1.11.3"]
-   [org.clojure/tools.cli "1.1.p230"]
+   [org.clojure/tools.cli "1.1.230"]
    [org.clojure/test.check "1.1.1"]
    [org.clojars.huahaiy/dtlvnative-windows-amd64 "0.9.4"]
    [org.clojars.huahaiy/dtlvnative-linux-amd64 "0.9.4"]
