@@ -24,6 +24,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import datalevin.ni.ResourceLister;
+
 
     /**
     * Sets up the context required for interacting with native library.
@@ -117,7 +119,8 @@ public final class Directives implements CContext.Directives {
 
             final ClassLoader cl = currentThread().getContextClassLoader();
 
-	    System.out.println(new String(cl.getResourceAsStream("dtlvnative/").readAllBytes()));
+	    Set<String> resources = ResourceLister.listResources(cl);
+            resources.forEach(System.out::println);
 
             try (InputStream in = cl.getResourceAsStream("dtlvnative/"
                                                             + platform + "/"
