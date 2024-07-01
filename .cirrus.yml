@@ -7,7 +7,7 @@ env:
 
 task:
   name: Linux ARM64 Build
-  memory: 10G
+  memory: 8G
   arm_container:
     image: ubuntu:latest
   only_if: $CIRRUS_TAG != ''
