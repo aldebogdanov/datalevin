@@ -1,15 +1,17 @@
+env:
+  LEIN_SNAPSHOTS_IN_RELEASE: true
+  LEIN_ROOT: "true"
+  GRAALVM_VERSION: "22.3.1"
+  DTLV_ARCH: aarch64
+  GITHUB_TOKEN: ENCRYPTED[4465a67af00336aee230128096c66806ff29a45ae7d46984ca6f7442505978661914be210ebc9d95cada71e23314706b]
+
 task:
   name: Linux ARM64 Build
   arm_container:
-    # image: ghcr.io/cirruslabs/ubuntu-runner-arm64:latest
     image: ubuntu:latest
   only_if: $CIRRUS_TAG != ''
   env:
-    LEIN_ROOT: "true"
-    GRAALVM_VERSION: "22.3.1"
     DTLV_PLATFORM: linux
-    DTLV_ARCH: aarch64
-    GITHUB_TOKEN: ENCRYPTED[4465a67af00336aee230128096c66806ff29a45ae7d46984ca6f7442505978661914be210ebc9d95cada71e23314706b]
   script: |
 
     apt-get update
@@ -58,11 +60,7 @@ task:
   only_if: $CIRRUS_TAG != ''
   # only_if: "changesInclude('.cirrus.yml', 'src/*', 'native/script/*')"
   env:
-    LEIN_ROOT: "true"
-    GRAALVM_VERSION: "22.3.1"
     DTLV_PLATFORM: macos
-    DTLV_ARCH: aarch64
-    GITHUB_TOKEN: ENCRYPTED[4465a67af00336aee230128096c66806ff29a45ae7d46984ca6f7442505978661914be210ebc9d95cada71e23314706b]
   script: |
 
     brew install leiningen
