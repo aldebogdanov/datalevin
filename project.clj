@@ -1,4 +1,4 @@
-(def version "0.9.7-test-59")
+(def version "0.9.7-test-60")
 
 (defproject datalevin version
   :description "A simple, fast and versatile Datalog database"

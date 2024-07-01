@@ -6,7 +6,6 @@ import java.net.URL;
 import java.net.URISyntaxException;
 import java.nio.file.*;
 import java.util.*;
-import java.util.Set;
 import java.util.stream.Stream;
 import java.util.jar.JarFile;
 import java.util.Enumeration;
