@@ -21,18 +21,12 @@ args_app=(
     "--verbose"
     "-jar" "target/main.uberjar.jar"
     "-H:Name=dtlv"
-    "-H:+PrintClassInitialization"
-    "-H:+ReportExceptionStackTraces"
-    "-H:+PrintCompilation"
 )
 
 args_test0=(
     "--verbose"
     "-jar" "target/test0.uberjar.jar"
     "-H:Name=dtlv-test0"
-    "-H:+PrintClassInitialization"
-    "-H:+ReportExceptionStackTraces"
-    "-H:+PrintCompilation"
 )
 
 if [[ "${STATIC_EXCEPT_LIBC:-}" =~ ^(true|1)$ ]]; then

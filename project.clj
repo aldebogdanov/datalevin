@@ -1,6 +1,6 @@
-(def version "0.9.7-SNAPSHOT-12")
+(def version "0.9.7-SNAPSHOT-13")
 
-(defproject datalevin version
+(defproject io.github.algoflora/datalevin version
   :description "A simple, fast and versatile Datalog database"
   :url "https://github.com/juji-io/datalevin"
   :license {:name "EPL-1.0"
