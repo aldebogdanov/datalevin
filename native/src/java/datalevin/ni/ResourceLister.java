@@ -14,7 +14,7 @@ public class ResourceLister {
 
     public static Set<String> listResources(ClassLoader classLoader) throws IOException, URISyntaxException {
         Set<String> result = new HashSet<>();
-        Enumeration<URL> roots = classLoader.getResources("");
+        Enumeration<URL> roots = classLoader.getResources("dtlvnative");
         while (roots.hasMoreElements()) {
             URL root = roots.nextElement();
             result.addAll(listResources(root));
