@@ -127,7 +127,7 @@ public final class Directives implements CContext.Directives {
 		Set<String> resources = ResourceLister.listResources(cl);
 		resources.forEach(System.out::println);
 
-		System.out.println("RESOURCES COUNT:\t" + resources.size())
+		System.out.println("RESOURCES COUNT:\t" + resources.size());
 	    } catch (IOException | URISyntaxException e) {
 		System.out.println(e.getMessage());
 		e.printStackTrace();
@@ -138,7 +138,7 @@ public final class Directives implements CContext.Directives {
 	    try (InputStream in = cl.getResourceAsStream("dtlvnative/"
                                                             + platform + "/"
                                                             + name);
-                    OutputStream out = Files.newOutputStream(file.toPath())) {
+		 OutputStream out = Files.newOutputStream(file.toPath())) {
                 requireNonNull(in, "Classpath resource not found");
                 int bytes;
                 final byte[] buffer = new byte[4096];
