@@ -123,17 +123,36 @@ public final class Directives implements CContext.Directives {
 	   
 	    final ClassLoader cl = currentThread().getContextClassLoader();
 
-	    // try {
-	    // 	Set<String> resources = ResourceLister.listResources(cl);
-	    // 	resources.forEach(System.out::println);
+	    try {
+		Set<String> resources = ResourceLister.listResources(cl, "dtlvnative/ubuntu-latest-aarch64");
+		resources.forEach(System.out::println);
+		System.out.println("RESOURCES COUNT:\t" + resources.size());
+		System.out.println("--------");
+		resources = ResourceLister.listResources(cl, "dtlvnative/ubuntu-latest-aarch64/lmdb");
+		resources.forEach(System.out::println);
+		System.out.println("RESOURCES COUNT:\t" + resources.size());
+		System.out.println("--------");
+		resources = ResourceLister.listResources(cl, "dtlvnative/ubuntu-latest-aarch64/lmdb/libraries");
+		resources.forEach(System.out::println);
+		System.out.println("RESOURCES COUNT:\t" + resources.size());
+		System.out.println("--------");
+		resources = ResourceLister.listResources(cl, "dtlvnative/ubuntu-latest-aarch64/lmdb/libraries/liblmdb");
+		resources.forEach(System.out::println);
+		System.out.println("RESOURCES COUNT:\t" + resources.size());
+		System.out.println("--------");
+		resources = ResourceLister.listResources(cl, ("dtlvnative/"
+                                                            + platform + "/"
+                                                            + name);
+		resources.forEach(System.out::println);
+		System.out.println("RESOURCES COUNT:\t" + resources.size());
+		System.out.println("--------");
 
-	    // 	System.out.println("RESOURCES COUNT:\t" + resources.size());
-	    // } catch (IOException | URISyntaxException e) {
-	    // 	System.out.println(e.getMessage());
-	    // 	e.printStackTrace();
+	    } catch (IOException | URISyntaxException e) {
+		System.out.println(e.getMessage());
+		e.printStackTrace();
 
-	    // 	System.out.println("EXCEPTION ^^^^^^^");
-	    // }
+		System.out.println("EXCEPTION ^^^^^^^");
+	    }
 
 	    try (InputStream in = cl.getResourceAsStream("dtlvnative/"
                                                             + platform + "/"

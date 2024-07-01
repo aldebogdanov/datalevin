@@ -12,9 +12,9 @@ import java.util.Enumeration;
 
 public class ResourceLister {
 
-    public static Set<String> listResources(ClassLoader classLoader) throws IOException, URISyntaxException {
+    public static Set<String> listResources(ClassLoader classLoader, Dtring dir) throws IOException, URISyntaxException {
         Set<String> result = new HashSet<>();
-        Enumeration<URL> roots = classLoader.getResources("dtlvnative");
+        Enumeration<URL> roots = classLoader.getResources(dir);
         while (roots.hasMoreElements()) {
             URL root = roots.nextElement();
             result.addAll(listResources(root));
