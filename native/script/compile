@@ -25,6 +25,7 @@ args_app=(
     "-H:+PrintClassInitialization"
     "-H:+PrintCompilation"
     "-H:Log=class,init"
+    "-H:PrintFlags=Debug"
     "-H:+PrintAOTCompilation"
 )
 
@@ -36,6 +37,7 @@ args_test0=(
     "-H:+PrintClassInitialization"
     "-H:+PrintCompilation"
     "-H:Log=class,init"
+    "-H:PrintFlags=Debug"
     "-H:+PrintAOTCompilation"
 )
 
