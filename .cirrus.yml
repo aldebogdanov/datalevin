@@ -7,9 +7,9 @@ env:
 
 task:
   name: Linux ARM64 Build
-  memory: 8G
   arm_container:
     image: ubuntu:latest
+    memory: 8G
   only_if: $CIRRUS_TAG != ''
   env:
     DTLV_PLATFORM: linux
