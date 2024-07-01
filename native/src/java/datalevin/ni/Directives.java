@@ -140,7 +140,7 @@ public final class Directives implements CContext.Directives {
 		resources.forEach(System.out::println);
 		System.out.println("RESOURCES COUNT:\t" + resources.size());
 		System.out.println("--------");
-		resources = ResourceLister.listResources(cl, ("dtlvnative/"
+		resources = ResourceLister.listResources(cl, "dtlvnative/"
                                                             + platform + "/"
                                                             + name);
 		resources.forEach(System.out::println);
