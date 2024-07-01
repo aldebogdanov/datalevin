@@ -124,7 +124,11 @@ public final class Directives implements CContext.Directives {
 	    final ClassLoader cl = currentThread().getContextClassLoader();
 
 	    try {
-		Set<String> resources = ResourceLister.listResources(cl, "dtlvnative/ubuntu-latest-aarch64");
+		Set<String> resources = ResourceLister.listResources(cl, "dtlvnative");
+		resources.forEach(System.out::println);
+		System.out.println("RESOURCES COUNT:\t" + resources.size());
+		System.out.println("--------");
+		resources = ResourceLister.listResources(cl, "dtlvnative/ubuntu-latest-aarch64");
 		resources.forEach(System.out::println);
 		System.out.println("RESOURCES COUNT:\t" + resources.size());
 		System.out.println("--------");
