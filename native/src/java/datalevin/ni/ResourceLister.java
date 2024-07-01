@@ -12,7 +12,7 @@ import java.util.Enumeration;
 
 public class ResourceLister {
 
-    public static Set<String> listResources(ClassLoader classLoader, Dtring dir) throws IOException, URISyntaxException {
+    public static Set<String> listResources(ClassLoader classLoader, String dir) throws IOException, URISyntaxException {
         Set<String> result = new HashSet<>();
         Enumeration<URL> roots = classLoader.getResources(dir);
         while (roots.hasMoreElements()) {
@@ -47,19 +47,5 @@ public class ResourceLister {
         }
         
         return result;
-    }
-
-    public static void main(String[] args) {
-        try {
-            // Example usage with the current thread's context class loader
-            Set<String> resources = listResources(Thread.currentThread().getContextClassLoader());
-            resources.forEach(System.out::println);
-
-            // Or with the system class loader
-            // Set<String> resources = listResources(ClassLoader.getSystemClassLoader());
-            // resources.forEach(System.out::println);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 }
