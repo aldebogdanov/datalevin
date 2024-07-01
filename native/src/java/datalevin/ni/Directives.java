@@ -66,7 +66,11 @@ public final class Directives implements CContext.Directives {
             dtlvLibName = "libdtlv.a";
             lmdbLibName = "liblmdb.a";
             myPlatform = "macos-latest-aarch64";
-        } else {
+        } else if (aarch64 && linux) {
+	    dtlvLibName = "libdtlv.a";
+	    lmdbLibName = "liblmdb.a";
+	    myPlatform = "ubuntu-latest-aarch64";
+	} else {
             throw new IllegalStateException("Unsupported platform: "
                                             + os + " on " + arch);
         }
