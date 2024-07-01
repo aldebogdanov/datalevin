@@ -30,12 +30,10 @@ task:
     export PATH=$GRAALVM_HOME/bin:$PATH
     export STATIC_EXCEPT_LIBC=true
 
-    tree -d .
+    tree ..
     script/compile
 
     cd ..
-    ls -lah
-    echo "Calling..."
     native/dtlv-test0
 
     cd native
