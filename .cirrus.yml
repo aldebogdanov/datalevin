@@ -13,7 +13,7 @@ task:
   script: |
 
     apt-get update
-    apt-get install -y curl git wget tar openjdk-11-jre-headless build-essential
+    apt-get install -y curl git wget tar openjdk-11-jre-headless tree build-essential
     
     curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
     chmod a+x lein
@@ -30,6 +30,7 @@ task:
     export PATH=$GRAALVM_HOME/bin:$PATH
     export STATIC_EXCEPT_LIBC=true
 
+    tree -d .
     script/compile
 
     cd ..
