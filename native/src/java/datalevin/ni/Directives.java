@@ -109,7 +109,7 @@ public final class Directives implements CContext.Directives {
     private static void extract(final String parent,
                                 final String platform,
                                 final String name) {
-	System.out.println("EXTRACT\t" + platform +"\t" + name)
+	System.out.println("EXTRACT\t" + platform +"\t" + name);
         try {
             final String filename = Paths.get(name).toString();
             final File file = new File(parent, filename);
