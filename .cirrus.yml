@@ -33,6 +33,7 @@ task:
     script/compile
 
     cd ..
+    ls -lah native/
     native/dtlv-test0
 
     cd native

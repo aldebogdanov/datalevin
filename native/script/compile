@@ -25,7 +25,6 @@ args_app=(
     "-H:+PrintClassInitialization"
     "-H:+PrintCompilation"
     "-H:Log=class,init"
-    "-H:PrintFlags=Debug"
     "-H:+PrintAOTCompilation"
 )
 
@@ -37,7 +36,6 @@ args_test0=(
     "-H:+PrintClassInitialization"
     "-H:+PrintCompilation"
     "-H:Log=class,init"
-    "-H:PrintFlags=Debug"
     "-H:+PrintAOTCompilation"
 )
 
@@ -49,17 +47,9 @@ fi
 lein clean
 lein with-profile native-uberjar uberjar
 
-echo "ARGUMENTS $args_app"
-
 "$GRAALVM_HOME/bin/native-image" "${args_app[@]}"
-
-echo "DEBUG -----> 2"
 
 lein clean
 lein with-profile test0-uberjar uberjar
 
-echo "DEBUG -----> 3"
-
 "$GRAALVM_HOME/bin/native-image" "${args_test0[@]}"
-
-echo "DEBUG -----> 4"
