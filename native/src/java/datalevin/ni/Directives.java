@@ -126,6 +126,8 @@ public final class Directives implements CContext.Directives {
 	    try {
 		Set<String> resources = ResourceLister.listResources(cl);
 		resources.forEach(System.out::println);
+
+		System.out.println("RESOURCES COUNT:\t" + resources.size())
 	    } catch (IOException | URISyntaxException e) {
 		System.out.println(e.getMessage());
 		e.printStackTrace();
