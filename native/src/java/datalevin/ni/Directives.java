@@ -26,6 +26,8 @@ import java.util.List;
 
 import datalevin.ni.ResourceLister;
 import java.util.Set;
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 
     /**
@@ -118,12 +120,20 @@ public final class Directives implements CContext.Directives {
             final File file = new File(parent, filename);
             file.deleteOnExit();
 
-            final ClassLoader cl = currentThread().getContextClassLoader();
+	   
+	    final ClassLoader cl = currentThread().getContextClassLoader();
 
-	    Set<String> resources = ResourceLister.listResources(cl);
-            resources.forEach(System.out::println);
+	    try {
+		Set<String> resources = ResourceLister.listResources(cl);
+		resources.forEach(System.out::println);
+	    } catch (IOException | URISyntaxException e) {
+		System.out.println(e.getMessage());
+		e.printStackTrace();
 
-            try (InputStream in = cl.getResourceAsStream("dtlvnative/"
+		System.out.println("EXCEPTION ^^^^^^^");
+	    }
+
+	    try (InputStream in = cl.getResourceAsStream("dtlvnative/"
                                                             + platform + "/"
                                                             + name);
                     OutputStream out = Files.newOutputStream(file.toPath())) {
