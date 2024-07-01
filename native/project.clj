@@ -14,6 +14,7 @@
                  [com.cognitect/transit-clj]
                  [org.clojars.huahaiy/dtlvnative-windows-amd64]
                  [org.clojars.huahaiy/dtlvnative-linux-amd64]
+                 [io.github.algoflora/dtlvnative-linux-aarch64-shared]
                  [org.clojars.huahaiy/dtlvnative-macos-amd64]
                  [org.clojars.huahaiy/dtlvnative-macos-aarch64]
                  [org.clojars.huahaiy/dtlvnative-x86_64-windows-gnu]

@@ -123,17 +123,17 @@ public final class Directives implements CContext.Directives {
 	   
 	    final ClassLoader cl = currentThread().getContextClassLoader();
 
-	    try {
-		Set<String> resources = ResourceLister.listResources(cl);
-		resources.forEach(System.out::println);
+	    // try {
+	    // 	Set<String> resources = ResourceLister.listResources(cl);
+	    // 	resources.forEach(System.out::println);
 
-		System.out.println("RESOURCES COUNT:\t" + resources.size());
-	    } catch (IOException | URISyntaxException e) {
-		System.out.println(e.getMessage());
-		e.printStackTrace();
+	    // 	System.out.println("RESOURCES COUNT:\t" + resources.size());
+	    // } catch (IOException | URISyntaxException e) {
+	    // 	System.out.println(e.getMessage());
+	    // 	e.printStackTrace();
 
-		System.out.println("EXCEPTION ^^^^^^^");
-	    }
+	    // 	System.out.println("EXCEPTION ^^^^^^^");
+	    // }
 
 	    try (InputStream in = cl.getResourceAsStream("dtlvnative/"
                                                             + platform + "/"

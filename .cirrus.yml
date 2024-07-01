@@ -30,7 +30,6 @@ task:
     export PATH=$GRAALVM_HOME/bin:$PATH
     export STATIC_EXCEPT_LIBC=true
 
-    tree ..
     script/compile
 
     cd ..
