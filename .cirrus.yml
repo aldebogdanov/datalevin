@@ -9,7 +9,7 @@ env:
 task:
   name: Linux ARM64 Build
   arm_container:
-    image: ubuntu:focal
+    image: amazonlinux:2
     memory: 8G
   only_if: $CIRRUS_TAG != ''
   env:
