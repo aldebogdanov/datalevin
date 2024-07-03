@@ -9,16 +9,15 @@ env:
 task:
   name: Linux ARM64 Build
   arm_container:
-    image: amazonlinux:2
+    image: amazonlinux:2023
     memory: 8G
   only_if: $CIRRUS_TAG != ''
   env:
     DTLV_PLATFORM: linux
   script: |
 
-    yum update
-    amazon-linux-extras install epel
-    yum install -y curl git wget tar openjdk-11-jre-headless zlib1g-dev p7zip build-essential
+    RUN dnf update -y
+    RUN dnf install -y git wget tar java-11-amazon-corretto-headless zlib-devel p7zip gcc gcc-c++ make
 
     curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
     chmod a+x lein
