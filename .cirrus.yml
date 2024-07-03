@@ -9,7 +9,7 @@ env:
 task:
   name: Linux ARM64 Build
   arm_container:
-    image: ubuntu:latest
+    image: ubuntu:focal
     memory: 8G
   only_if: $CIRRUS_TAG != ''
   env:
@@ -19,9 +19,6 @@ task:
     apt-get update
     apt-get install -y curl git wget tar openjdk-11-jre-headless zlib1g-dev build-essential
 
-    echo "Downgrading glibc..."
-    apt-get install -y glibc="2.31"
-    
     curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
     chmod a+x lein
     mv lein /usr/local/bin/
