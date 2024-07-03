@@ -1,4 +1,4 @@
-(def version "0.9.8-SNAPSHOT-1")
+(def version "0.9.8-SNAPSHOT-2")
 
 (defproject datalevin version
   :description "A simple, fast and versatile Datalog database"
@@ -42,8 +42,8 @@
   [[org.clojure/clojure :scope "provided"]
    [org.clojars.huahaiy/dtlvnative-macos-aarch64-shared]
    [org.clojars.huahaiy/dtlvnative-macos-amd64-shared]
-   [org.clojars.huahaiy/dtlvnative-linux-aarch64-shared]
-   [org.clojars.huahaiy/dtlvnative-linux-aarch64]
+   [io.github.algoflora/dtlvnative-linux-aarch64-shared]
+   [io.github.algoflora/dtlvnative-linux-aarch64]
    [org.clojars.huahaiy/dtlvnative-linux-amd64-shared]
    [org.clojars.huahaiy/dtlvnative-x86_64-windows-gnu]
    [org.clojars.huahaiy/dtlvnative-aarch64-linux-gnu]
