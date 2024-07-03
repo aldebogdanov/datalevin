@@ -16,8 +16,9 @@ task:
     DTLV_PLATFORM: linux
   script: |
 
-    apt-get update
-    DEBIAN_FRONTEND=noninteractive apt-get install -y curl git wget tar openjdk-11-jre-headless zlib1g-dev build-essential
+    yum update
+    amazon-linux-extras install epel
+    yum install -y curl git wget tar openjdk-11-jre-headless zlib1g-dev p7zip build-essential
 
     curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
     chmod a+x lein
@@ -40,8 +41,6 @@ task:
     native/dtlv-test0
 
     cd native
-
-    apt-get install -y p7zip-full
 
     export DTLV_ARCHIVE="dtlv-${CIRRUS_TAG}-ubuntu-latest-aarch64.zip"
     export DTLV_TAG="${CIRRUS_TAG}"
