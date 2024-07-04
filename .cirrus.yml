@@ -44,7 +44,7 @@ task:
     export DTLV_ARCHIVE="dtlv-${CIRRUS_TAG}-ubuntu-latest-aarch64.zip"
     export DTLV_TAG="${CIRRUS_TAG}"
 
-    7z a -tzip "$DTLV_ARCHIVE" dtlv
+    7za a -tzip "$DTLV_ARCHIVE" dtlv
 
     curl -sLO https://raw.githubusercontent.com/babashka/babashka/master/install
     chmod +x install
