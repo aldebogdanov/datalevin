@@ -17,8 +17,7 @@ task:
   script: |
 
     dnf update -y
-    dnf install -y git wget tar java-11-amazon-corretto-headless zlib-devel p7zip gcc gcc-c++ make
-    dnf groupinstall "Development Tools" -y
+    dnf install -y git wget tar java-11-amazon-corretto-headless zlib-static zlib-devel p7zip gcc gcc-c++ make libstdc++-static
 
     curl -O https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
     chmod a+x lein
